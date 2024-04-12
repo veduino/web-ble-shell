@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>Web-Bluetooth Terminal</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+  <div class="header">WEB BLE SHELL TESTING</div>
+  <div class="terminal"><textarea id="term" readonly class="terminal"></textarea></div>
+  <div class="footer">
+    <div class="inputfield">
+      <input id ="input" type="text" class="input" placeholder="Write something to send here...">
+    </div>
+      <div class="button" style="background-color: black;">
+        <button onclick="send()">
+          <i class="fa fa-paper-plane"></i>
+        </button>
+      </div>
+      <div id="connect" class="button" style="background-color: green;" >
+        <button onclick="connect()">
+          <i class="fa fa-plug"></i>
+        </button>
+      </div>
+      <div class="button" style="background-color: red;">
+        <button onclick="disconnect()">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+  </div>
+  <script src="script.js"></script>   
+</body>
+</html>
