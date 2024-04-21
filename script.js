@@ -6,7 +6,8 @@ const txid="6e400002-b5a3-f393-e0a9-e50e24dcca9e";
 const characteristicUuid = "6e400003-b5a3-f393-e0a9-e50e24dcca9e";
 
 async function connect() {
-  const device=await navigator.bluetooth.requestDevice({filters: [{name:'Aria'}],
+  const device=await navigator.bluetooth.requestDevice({//filters: [{name:'Aria'}],
+    acceptAllDevices:true,
   optionalServices: [serviceUuid]
 });  
 deviceName = device.name;
@@ -26,7 +27,8 @@ async function bNotifications()
 
 
 function disconnect() {
-    document.getElementById("input").innerHTML = "";
+    document.getElementById("input").value = "";
+    document.getElementById("term").value = ""; 
 }
 
 function handleNotifications(event) {
@@ -93,5 +95,11 @@ function decodeAnsiColors(text) {
     return decodedText;
 }
 
+const inputField = document.getElementById("input");
+inputField.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    send(); // Call the send function when Enter key is pressed
+  }
+});
 
 log("*Note: Please ensure that the experimental web features are ON");
