@@ -43,6 +43,7 @@ function handleNotifications(event) {
  
  log(val);
   console.log('> Received: ' ,val);
+  scrollToBottom();
 }
 
 async function send() {
@@ -67,9 +68,6 @@ function log(str) {
 
     document.getElementById("term").value +="\n"+str;
 }
-
-
-
 
 function decodeAnsiColors(text) {
     // Define regular expressions for ANSI color codes
@@ -99,7 +97,13 @@ const inputField = document.getElementById("input");
 inputField.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     send(); // Call the send function when Enter key is pressed
+    scrollToBottom();
   }
 });
 
 log("*Note: Please ensure that the experimental web features are ON");
+const terminal = document.getElementById("term");
+terminal.addEventListener("input", scrollToBottom); 
+function scrollToBottom() {
+  terminal.scrollTop = terminal.scrollHeight;
+}
